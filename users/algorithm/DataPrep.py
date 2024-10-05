@@ -19,9 +19,9 @@ from django.conf import settings
 # reading data files
 
 
-test_filename = settings.MEDIA_ROOT + "\\" +'test.csv'
-train_filename = settings.MEDIA_ROOT + "\\" +'train.csv'
-valid_filename = settings.MEDIA_ROOT + "\\" +'valid.csv'
+test_filename = settings.MEDIA_ROOT + "/" +'test.csv'
+train_filename = settings.MEDIA_ROOT + "/" +'train.csv'
+valid_filename = settings.MEDIA_ROOT + "/" +'valid.csv'
 
 train_news = pd.read_csv(train_filename)
 test_news = pd.read_csv(test_filename)
@@ -47,7 +47,7 @@ def data_obs():
 
 # distribution of classes for prediction
 def create_distribution(dataFile):
-    return sb.countplot(x='Label', data=dataFile, palette='hls')
+    return sb.countplot(x='Label', hue='Label', data=dataFile, palette='hls')
 
 
 # by calling below we can see that training, test and valid data seems to be failry evenly distributed between the classes
